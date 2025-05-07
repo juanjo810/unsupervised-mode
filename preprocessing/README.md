@@ -8,7 +8,7 @@ All scripts are designed to work with `.csv` or `.xlsx` files and operate on col
 
 ## 📦 Scripts Overview
 
-### `scale_features.py`
+### 🎶 `scale_features.py`
 
 Normalize array-valued columns using **MinMaxScaler**.
 
@@ -30,7 +30,7 @@ python scale_features.py \
 - The script reads the input file, applies **MinMaxScaler** to the specified columns, and saves the normalized values in the output file.
 - The scaling operation transforms the values in the selected columns into a range between 0 and 1 based on the minimum and maximum values of each column.
 
-### 🎶 dim_reduction.py
+### 🎶 `dim_reduction.py`
 
 This script applies dimensionality reduction techniques **UMAP** and/or **Locally Linear Embedding (LLE)** to the specified columns in a DataFrame. It helps reduce the dimensionality of feature embeddings for easier analysis and visualization.
 
@@ -71,7 +71,7 @@ python dim_reduction.py \
 - The script supports applying both **UMAP** and **LLE** independently. If both are specified, the script will compute reductions for each technique separately.
 - **UMAP** and **LLE** are powerful methods for reducing high-dimensional data into a lower-dimensional space, suitable for visualization or further processing.
 
-### 🎶 smote_augmentation.py
+### 🎶 `smote_augmentation.py`
 
 This script applies **SMOTE (Synthetic Minority Over-sampling Technique)** to each specified feature column independently, based on the given label column. SMOTE is used for balancing imbalanced datasets by generating synthetic samples for the minority class.
 
