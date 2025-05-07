@@ -17,6 +17,13 @@ Normalize array-valued columns using **MinMaxScaler**.
 - `--columns`: List of columns to normalize – **required**
 - `--output`: Output file (default: `normalized_output.xlsx`)
 
+
+#### Description:
+
+- The script reads the input file, applies **MinMaxScaler** to the specified columns, and saves the normalized values in the output file.
+- The scaling operation transforms the values in the selected columns into a range between 0 and 1 based on the minimum and maximum values of each column.
+
+
 #### Example:
 ```bash
 python scale_features.py \
@@ -25,14 +32,14 @@ python scale_features.py \
   --output normalized_features.xlsx
 ```
 
-#### Description:
-
-- The script reads the input file, applies **MinMaxScaler** to the specified columns, and saves the normalized values in the output file.
-- The scaling operation transforms the values in the selected columns into a range between 0 and 1 based on the minimum and maximum values of each column.
-
 ### 🎶 `dim_reduction.py`
 
 This script applies dimensionality reduction techniques **UMAP** and/or **Locally Linear Embedding (LLE)** to the specified columns in a DataFrame. It helps reduce the dimensionality of feature embeddings for easier analysis and visualization.
+
+#### Description:
+
+- The script supports applying both **UMAP** and **LLE** independently. If both are specified, the script will compute reductions for each technique separately.
+- **UMAP** and **LLE** are powerful methods for reducing high-dimensional data into a lower-dimensional space, suitable for visualization or further processing.
 
 #### 📋 Arguments
 
@@ -66,14 +73,16 @@ python dim_reduction.py \
   --output_lle lle_result.xlsx
 ```
 
-#### Description:
-
-- The script supports applying both **UMAP** and **LLE** independently. If both are specified, the script will compute reductions for each technique separately.
-- **UMAP** and **LLE** are powerful methods for reducing high-dimensional data into a lower-dimensional space, suitable for visualization or further processing.
-
 ### 🎶 `smote_augmentation.py`
 
 This script applies **SMOTE (Synthetic Minority Over-sampling Technique)** to each specified feature column independently, based on the given label column. SMOTE is used for balancing imbalanced datasets by generating synthetic samples for the minority class.
+
+#### Description:
+
+- The script applies **SMOTE** independently to each feature column specified in the `--features` argument.
+- Synthetic samples are generated for each feature column to balance the dataset based on the specified label column.
+- Each output is saved in a separate file for each feature column, under the directory specified in `--output_dir`.
+
 
 #### 📋 Arguments
 
@@ -93,13 +102,6 @@ This script applies **SMOTE (Synthetic Minority Over-sampling Technique)** to ea
   --random_state 123
 
 ```
-
-
-#### Description:
-
-- The script applies **SMOTE** independently to each feature column specified in the `--features` argument.
-- Synthetic samples are generated for each feature column to balance the dataset based on the specified label column.
-- Each output is saved in a separate file for each feature column, under the directory specified in `--output_dir`.
 
 ## 📝 Notes
 
