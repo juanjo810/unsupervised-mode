@@ -1,4 +1,4 @@
-# Unsupervised Mode Detection in Irish Traditional Music
+# Unsupervised Mode Detection
 
 This repository accompanies the article:
 
