@@ -43,7 +43,7 @@ The output Excel file contains one sheet per combination of feature set and clus
 
 Each sheet is named using the format: <FEATURESET>_<ALGORITHM>
 
-#### Example: 
+#### Example
 
 *Supervised clustering* (infers number of clusters from labels)
 ```bash
@@ -66,6 +66,31 @@ python unsupervised_clustering.py \
 
 ### 🎶 `get_metrics`
 
+#### Description
 
+This script evaluates unsupervised clustering results using three metrics:
+ - Normalized Mutual Information (NMI)
+ - Adjusted Rand Index (ARI)
+ - Purity
+
+It assumes the clustering results are stored in an Excel file where each sheet contains a DataFrame with predicted cluster labels and true class labels. The column names can be customized via command-line arguments.
+
+#### 📋 Arguments
+```bash
+--input           Path to the input Excel file containing clustering results in multiple sheets. [required]
+--output          Output Excel file to save the metrics summary. [default: clustering_metrics.xlsx]
+--true_labels     Column name containing the ground-truth labels [default: mode]
+--pred_labels     Column name containing the predicted cluster labels [default: cluster_labels]
+```
+
+#### Example
+```bash
+python evaluate_clustering.py \
+  --input clustering_results.xlsx \
+  --output clustering_metrics_summary.xlsx \
+  --true_labels mode \
+  --pred_labels cluster_labels
+
+```
 
 
